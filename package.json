@@ -1,0 +1,25 @@
+{
+  "name": "felix-exchange-api",
+  "version": "1.0.0",
+  "description": "Npm package to manage the api's provided by felix exchange.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raibhuwan/felix-exchange-api.git"
+  },
+  "keywords": [
+    "Felix exchange"
+  ],
+  "author": "Bhuwan Rai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raibhuwan/felix-exchange-api/issues"
+  },
+  "homepage": "https://github.com/raibhuwan/felix-exchange-api#readme",
+  "dependencies": {
+    "axios": "^1.2.0"
+  }
+}
