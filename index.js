@@ -1,5 +1,18 @@
-const http = require('./utils/http')
+const http = require('./utils/http');
+const crypto = require('crypto');
 const API_URL = 'https://trade.felix.com';
+let secret_key = '';
+
+/**
+ * Generate signature
+ *
+ * @param { String } query
+ * @returns
+ *
+ */
+const generateSignature = ( query = '' ) => {
+    return crypto.createHmac('sha256', secret_key).update(query).digest('hex');
+}
 
 /**
  * Get felix spot balance
@@ -9,13 +22,18 @@ const API_URL = 'https://trade.felix.com';
  */
 const spotBalance = async ()  => {
     try {
-        const data = await http.get(API_URL + '/open/v1/account/spot');
 
-        if (!data.data) {
+        const signature = generateSignature();
+
+        const response = await http.get(API_URL + '/open/v1/account/spot?signature=' + signature);
+
+        if (!response.data) {
             return false;
         }
 
-        if (data.data.code > 0) {
+        const data = response.data;
+
+        if (data.code > 0) {
             return false;
         }
 
@@ -32,16 +50,13 @@ const spotBalance = async ()  => {
  * @returns
  *
  * @param { String } api_key
- * @param { String } signature
+ * @param { String } private_key
  */
-const FelixExchangeApi =  (api_key, signature) => {
+const FelixExchangeApi =  (api_key, private_key) => {
 
+    secret_key = private_key;
     http.interceptors.request.use(request => {
         request.headers["X-MBX-APIKEY"] = api_key;
-        request.params = {
-            ...request.params,
-            signature: signature
-        };
         return request;
     });
 

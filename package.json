@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/raibhuwan/felix-exchange-api#readme",
   "dependencies": {
-    "axios": "^1.2.0"
+    "axios": "^1.2.0",
+    "crypto": "^1.0.1"
   }
 }
