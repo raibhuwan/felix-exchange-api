@@ -1,6 +1,6 @@
 {
   "name": "felix-trade-api",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Npm package to manage the api's provided by felix exchange.",
   "main": "index.js",
   "scripts": {
