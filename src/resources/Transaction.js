@@ -5,7 +5,7 @@ const { config } = require("../config");
 /**
  * Get felix withdrawals.
  *
- * @param { String } query
+ * @param { Object } query
  * @returns
  *
  */
@@ -47,7 +47,7 @@ const fetchWithdrawals = async (query)  => {
 /**
  * Get felix deposit history.
  *
- * @param { String } query
+ * @param { Object } query
  * @returns
  *
  */
@@ -89,6 +89,7 @@ const fetchDeposits = async (query)  => {
 /**
  * Get felix transactions.
  *
+ * @param { Object } query
  * @returns
  *
  */
