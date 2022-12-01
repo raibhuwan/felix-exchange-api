@@ -1,1 +1,1 @@
-# felix-exchange-api
+# felix-trade-api
